@@ -4,7 +4,8 @@
   "description": "O *J.A.R.V.I.S.* é um bot que você pode vincular ao seu servidor do Discord para ajudar em várias tarefas, seja no gerenciamento e moderação do canal ou mesmo para garantir o entretenimento dos membros!",
   "main": "src/index.js",
   "scripts": {
-    "start": "nodemon src/index.js"
+    "start": "nodemon src/index.js",
+    "deploy": "node src/deploy-commands.js"
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,9 @@
     "nodemon": "^2.0.13"
   },
   "dependencies": {
+    "@discordjs/builders": "^0.6.0",
+    "@discordjs/rest": "^0.1.0-canary.0",
+    "discord-api-types": "^0.23.1",
     "discord.js": "^13.2.0"
   }
 }
