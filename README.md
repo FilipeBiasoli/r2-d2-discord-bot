@@ -3,8 +3,8 @@ O *J.A.R.V.I.S.* é um bot que você pode vincular ao seu servidor do Discord pa
 
 ## Indíce
 * [Requisitos](#requisitos)
-* [Instalação](#instalacao)
-* [Lista de Comandos](#lista_de_comandos)
+* [Instalação](#instalação)
+* [Lista de Comandos](#lista-de-comandos)
 
 ## Requisitos
 * [NodeJS (v16.6.0)](https://nodejs.org/en/)
@@ -68,4 +68,4 @@ npm run deploy
 ```
 
 ## Lista de Comandos
-* **Testar bot:** `/teste`;
+* **Jogar um dado:** `/dice (insira o número máximo do dado)`
