@@ -3,7 +3,8 @@ O *J.A.R.V.I.S.* é um bot que você pode vincular ao seu servidor do Discord pa
 
 ## Indíce
 * [Requisitos](#requisitos)
-* [Instalação](#instalação)
+* [Instalação](#instalacao)
+* [Lista de Comandos](#lista_de_comandos)
 
 ## Requisitos
 * [NodeJS (v16.6.0)](https://nodejs.org/en/)
@@ -51,7 +52,7 @@ Para gerar o link de convite que adiciona o bot aos servidores siga os passos a 
 Para implantar os comandos do bot ao servidor você precisa adicionar dois novos campos ao arquivo `src/config/config.json` criado anteriormente. O campo **clientId** que reprsenta o id do seu bot e o **guildId** que representa o id do seu servidor. Seu arquivo ficará assim:
 ```json
 {
-	"clientId": "client-id-bot",
+  "clientId": "client-id-bot",
   "guildId": "id-servidor",  
   "token": "seu-token-vai-aqui"
 }
@@ -65,3 +66,6 @@ Acesse a pasta raiz do projeto e execute o *deploy* para implantar os comandos a
 ```cmd
 npm run deploy
 ```
+
+## Lista de Comandos
+* **Testar bot:** `/teste`;

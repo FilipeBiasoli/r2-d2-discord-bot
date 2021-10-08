@@ -1,20 +1,29 @@
-const { Client, Intents } = require('discord.js');
+const fs = require('fs');
+const { Client, Collection, Intents } = require('discord.js');
 const { token } = require('./config/config.json');
 
 const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
 
-client.once('ready', () => {
-	console.log('O bot está on-line!');
-});
+// comandos
+client.commands = new Collection();
+const commandFiles = fs.readdirSync('./src/commands').filter(file => file.endsWith('.js'));
 
-client.on('interactionCreate', async interaction => {
-	if (!interaction.isCommand()) return;
+for (const file of commandFiles) {
+	const command = require(`./commands/${file}`);
+	client.commands.set(command.data.name, command);
+}
 
-	const { commandName } = interaction;
+// eventos
+const eventFiles = fs.readdirSync('./src/events').filter(file => file.endsWith('.js'));
 
-	if (commandName === 'teste') {
-		await interaction.reply('Está funcionando!');
+for (const file of eventFiles) {
+	const event = require(`./events/${file}`);
+	if (event.once) {
+		client.once(event.name, (...args) => event.execute(...args));
+	} else {
+		client.on(event.name, (...args) => event.execute(...args));
 	}
-});
+}
 
+// login
 client.login(token);
