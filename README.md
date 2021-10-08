@@ -35,3 +35,13 @@ Para conectar o bot criado com o nosso projeto crie o arquivo `src/config/config
   "token": "seu-token-vai-aqui"
 }
 ```
+
+**Adicionando o bot aos servidores:**
+
+Para gerar o link de convite que adiciona o bot aos servidores siga os passos a seguir:
+* Selecione a guia *"OAuth2"* no painel esquerdo do portal do desenvolvedor do Discord;
+* Na parte inferior da página, você encontrará o gerador de URL OAuth2 do Discord. Selecione as opções **bot** e **applications.commands**;
+* Depois de selecionar a opção de **bot**, uma lista de permissões aparecerá, selecione **Administrator**;
+* Acima da lista de permissões pegue o link de convite através do botão *"Copy"* e insira-o em seu navegador;
+* Escolha o servidor ao qual deseja adicioná-lo e clique em *"Continuar"*. Observe que você precisará da permissão **"Gerenciar servidor"** para poder adiciona-lo em um servidor;
+* Em seguida clique em *"Autorizar"*.
