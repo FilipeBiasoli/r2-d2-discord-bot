@@ -1,0 +1,23 @@
+{
+  "name": "discord-bot-jarvis",
+  "version": "1.0.0",
+  "description": "O *J.A.R.V.I.S.* é um bot que você pode vincular ao seu servidor do Discord para ajudar em várias tarefas, seja no gerenciamento e moderação do canal ou mesmo para garantir o entretenimento dos membros!",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FilipeBiasoli/discord-bot-jarvis.git"
+  },
+  "keywords": [],
+  "author": "Filipe Biasoli - https://www.linkedin.com/in/filipe-biasoli/",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FilipeBiasoli/discord-bot-jarvis/issues"
+  },
+  "homepage": "https://github.com/FilipeBiasoli/discord-bot-jarvis#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.13"
+  }
+}
