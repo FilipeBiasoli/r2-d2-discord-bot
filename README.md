@@ -8,7 +8,7 @@ Este respositório contém um bot inspirado no personagem _R2-D2_ que você pode
 
 - [Requisitos](#requisitos)
 - [Instalação](#instalação)
-- [Lista de Comandos](#lista-de-comandos)
+- [Interações](#interações)
 
 ## Requisitos
 
@@ -28,57 +28,45 @@ Acesse a pasta raiz do projeto e instale as dependências:
 npm install
 ```
 
+**Variáveis de ambiente:**
+
+Crie um arquivo `.env` na raíz do projeto, usando o arquivo `.env.example` como referência.
+
 **Criando seu bot:**
 
 - Ative o **"Modo de desenvolvedor"** do Discord. Para isso abra seu aplicativo e vá para suas configurações. Na página _"Avançado"_, ative o _"Modo de desenvolvedor"_.
-- Abra o portal do desenvolvedor do Discord clicando [aqui](https://discord.com/developers/applications) e faça login em sua conta;
-- Clique no botão _"New Application"_, nomeie seu aplicativo como _R2-D2_ e confirme a janela pop-up clicando no botão _"Create"_;
-- Prossiga selecionando a guia _"Bot"_ no painel esquerdo;
+- Abra o portal do desenvolvedor do Discord clicando [aqui](https://discord.com/developers/applications) e faça login em sua conta.
+- Clique no botão _"New Application"_, nomeie seu aplicativo como _R2-D2_ e confirme a janela pop-up clicando no botão _"Create"_.
+- Prossiga selecionando a guia _"Bot"_ no painel esquerdo.
 - Clique no botão _"Add Bot_" à direita e confirme a janela pop-up clicando em _"Yes, do it!_".
-- Clique no botão _"Copy"_ para copiar o token de seu bot.
+- Clique no botão _"Copy"_ para copiar o token de seu bot, e adicione ao campo **TOKEN** nas variáveis de ambiente.
 
-**Conexão com o projeto:**
-
-Para conectar o bot criado com o nosso projeto crie o arquivo `src/config/config.json`, usando o arquivo `src/config/config.example.json` como referência. Preencha o campo **token** com o token copiado no portal do desenvolvedor do Discord no passo anterior. Seu arquivo ficará assim:
-
-```json
-{
-  "token": "seu-token-vai-aqui"
-}
-```
-
-**Adicionando o bot aos servidores:**
+**Adicionando o bot ao servidor:**
 
 Para gerar o link de convite que adiciona o bot aos servidores siga os passos a seguir:
 
-- Selecione a guia _"OAuth2"_ no painel esquerdo do portal do desenvolvedor do Discord;
-- Na parte inferior da página, você encontrará o gerador de URL OAuth2 do Discord. Selecione as opções **bot** e **applications.commands**;
-- Depois de selecionar a opção de **bot**, uma lista de permissões aparecerá, selecione **Administrator**;
-- Acima da lista de permissões pegue o link de convite através do botão _"Copy"_ e insira-o em seu navegador;
-- Escolha o servidor ao qual deseja adicioná-lo e clique em _"Continuar"_. Observe que você precisará da permissão **"Gerenciar servidor"** para poder adiciona-lo em um servidor;
+- Selecione a guia _"OAuth2"_ no painel esquerdo do portal do desenvolvedor do Discord.
+- Na parte inferior da página, você encontrará o gerador de URL OAuth2 do Discord. Selecione as opções **bot** e **applications.commands**.
+- Depois de selecionar a opção de **bot**, uma lista de permissões aparecerá, selecione **Administrator**.
+- Acima da lista de permissões pegue o link de convite através do botão _"Copy"_ e insira-o em seu navegador.
+- Escolha o servidor ao qual deseja adicioná-lo e clique em _"Continuar"_. Observe que você precisará da permissão **"Gerenciar servidor"** para poder adiciona-lo em um servidor.
 - Em seguida clique em _"Autorizar"_.
 
-**Implantando os comandos:**
+**Implantando os comandos ao servidor:**
 
-Para implantar os comandos do bot ao servidor você precisa adicionar dois novos campos ao arquivo `src/config/config.json` criado anteriormente. O campo **clientId** que reprsenta o id do seu bot e o **guildId** que representa o id do seu servidor. Seu arquivo ficará assim:
+- Navegue até o servidor onde o seu bot foi adicionado, clique com o botão direito do mouse no ícone do servidor e depois em _"Copiar ID"_. Esse será o valor de **GUILD_ID** nas variáveis de ambiente, que representa o id do seu servidor.
+- No mesmo servidor, clique com o botão direito do mouse no perfil de usuário do bot em questão, no lado direito da tela, e depois clique em _"Copiar ID"_. Esse será o valor de **CLIENT_ID** nas variáveis de ambiente, que representa o id do seu bot.
 
-```json
-{
-  "clientId": "client-id-bot",
-  "guildId": "id-servidor",
-  "token": "seu-token-vai-aqui"
-}
-```
-
-- Navegue até o servidor onde o seu bot foi adicionado, clique com o botão direito do mouse no ícone do servidor e depois em _"Copiar ID"_. Esse será o valor de **guildId**;
-- No mesmo servidor, clique com o botão direito do mouse no perfil de usuário do bot, no lado direito da tela, e depois clique em _"Copiar ID"_. Esse será o valor de **clientId**.
-
-Acesse a pasta raiz do projeto e execute o _deploy_ para implantar os comandos ao servidor:
+Acesse a pasta raiz do projeto e execute o _deploy_ para implantar os comandos do bot ao servidor. Nota: sempre que criar um novo comando será necessário executar o _deploy_ dos comandos novamente:
 
 ```cmd
-npm run deploy
+npm run deploy-commands
 ```
 
-## Lista de Comandos
+## Interações
 
-- **Jogar um dado:** `/dice (insira o número máximo do dado)`
+### Jogar um dado:
+
+- **Comando:** `/dice (nº máximo)`
+
+Retorna um número aleatório entre 1 e o número máximo passado no comando.
